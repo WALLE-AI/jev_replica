@@ -1,0 +1,3 @@
+# Optional synchronous, headless shooting environments; install in a virtualenv.
+vizdoom==1.3.0
+gymnasium==1.3.0

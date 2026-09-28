@@ -1,0 +1,24 @@
+# Local credentials and generated private data
+.env
+.env.*
+!.env.example
+node_modules/
+.venv/
+.cache/
+__pycache__/
+*.pyc
+research/private*
+research/claude_review_raw.json
+research/claude_review_prompt.md
+research/*_stderr.log
+research/official_*
+runs/
+checkpoints/
+weights/
+data/
+artifacts/
+publish/
+*.safetensors
+*.pt
+*.pth
+.DS_Store

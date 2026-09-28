@@ -1,0 +1,3 @@
+# CPU replay and lossless sprite export. Model inference uses requirements-toy.txt.
+vizdoom==1.3.0
+Pillow==12.3.0
