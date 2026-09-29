@@ -1,0 +1,112 @@
+{
+  "config": {
+    "checkpoint_dir": "repro/checkpoints/english/final_deploy",
+    "massive_langs": "en,de,fr,es,zh-CN,hi,ar,sw",
+    "xnli_langs": "en,de,fr,es,zh,hi,ar,sw",
+    "per_lang": 100,
+    "n_opts": 20,
+    "massive_dir": "data/massive_intent",
+    "xnli_dir": "data/xnli",
+    "out": "repro/eval_massive_xnli_english.json"
+  },
+  "massive": {
+    "en": {
+      "n": 100,
+      "accuracy": 0.09,
+      "ece": 0.06032799999999999,
+      "mean_confidence": 0.108464
+    },
+    "de": {
+      "n": 100,
+      "accuracy": 0.06,
+      "ece": 0.05443,
+      "mean_confidence": 0.08686800000000001
+    },
+    "fr": {
+      "n": 100,
+      "accuracy": 0.07,
+      "ece": 0.025006999999999988,
+      "mean_confidence": 0.09500700000000001
+    },
+    "es": {
+      "n": 100,
+      "accuracy": 0.06,
+      "ece": 0.035608,
+      "mean_confidence": 0.095608
+    },
+    "zh-CN": {
+      "n": 100,
+      "accuracy": 0.08,
+      "ece": 0.02513299999999997,
+      "mean_confidence": 0.09371299999999999
+    },
+    "hi": {
+      "n": 100,
+      "accuracy": 0.05,
+      "ece": 0.046966999999999995,
+      "mean_confidence": 0.083231
+    },
+    "ar": {
+      "n": 100,
+      "accuracy": 0.04,
+      "ece": 0.04422999999999999,
+      "mean_confidence": 0.08423000000000001
+    },
+    "sw": {
+      "n": 100,
+      "accuracy": 0.05,
+      "ece": 0.065468,
+      "mean_confidence": 0.08297199999999999
+    }
+  },
+  "xnli": {
+    "en": {
+      "n": 100,
+      "accuracy": 0.33,
+      "ece": 0.14152099999999995,
+      "mean_confidence": 0.47152099999999997
+    },
+    "de": {
+      "n": 100,
+      "accuracy": 0.33,
+      "ece": 0.14059599999999994,
+      "mean_confidence": 0.47059599999999996
+    },
+    "fr": {
+      "n": 100,
+      "accuracy": 0.33,
+      "ece": 0.15258499999999994,
+      "mean_confidence": 0.47344699999999995
+    },
+    "es": {
+      "n": 100,
+      "accuracy": 0.33,
+      "ece": 0.14403599999999994,
+      "mean_confidence": 0.47403600000000007
+    },
+    "zh": {
+      "n": 100,
+      "accuracy": 0.33,
+      "ece": 0.12980699999999995,
+      "mean_confidence": 0.4598070000000001
+    },
+    "hi": {
+      "n": 100,
+      "accuracy": 0.33,
+      "ece": 0.12638900000000003,
+      "mean_confidence": 0.45638900000000004
+    },
+    "ar": {
+      "n": 100,
+      "accuracy": 0.33,
+      "ece": 0.124919,
+      "mean_confidence": 0.4549190000000001
+    },
+    "sw": {
+      "n": 100,
+      "accuracy": 0.33,
+      "ece": 0.13518200000000002,
+      "mean_confidence": 0.46518199999999993
+    }
+  }
+}

@@ -1,0 +1,101 @@
+W0928 17:15:42.019000 59116 torch/distributed/run.py:982] 
+W0928 17:15:42.019000 59116 torch/distributed/run.py:982] *****************************************
+W0928 17:15:42.019000 59116 torch/distributed/run.py:982] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W0928 17:15:42.019000 59116 torch/distributed/run.py:982] *****************************************
+rank0: 5600 fit items, 400 calibration items, world_size=2
+Loading weights:   0%|          | 0/170 [00:00<?, ?it/s]Loading weights: 100%|██████████| 170/170 [00:00<00:00, 5461.12it/s]
+[transformers] [1mModernBertModel LOAD REPORT[0m from: /home/dataset1/gaojing/jev_replica/laya/models/ModernBERT-large
+Key               | Status     |  | 
+------------------+------------+--+-
+head.dense.weight | UNEXPECTED |  | 
+head.norm.weight  | UNEXPECTED |  | 
+decoder.bias      | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+Loading weights:   0%|          | 0/170 [00:00<?, ?it/s]Loading weights: 100%|██████████| 170/170 [00:00<00:00, 4648.13it/s]
+[transformers] [1mModernBertModel LOAD REPORT[0m from: /home/dataset1/gaojing/jev_replica/laya/models/ModernBERT-large
+Key               | Status     |  | 
+------------------+------------+--+-
+head.norm.weight  | UNEXPECTED |  | 
+decoder.bias      | UNEXPECTED |  | 
+head.dense.weight | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+[rank1]:[W928 17:15:49.639068190 reducer.cpp:1529] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[rank0]:[W928 17:15:49.655888193 reducer.cpp:1529] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+/home/dataset1/gaojing/jev_replica/laya/repro/train_ddp.py:192: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+  scheduler.step()
+/home/dataset1/gaojing/jev_replica/laya/repro/train_ddp.py:192: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+  scheduler.step()
+epoch 0 step 20/348 ce_loss=1.1763 sigma=0.384 lr=[2.4804938127184034e-05, 9.919536977463413e-05] elapsed=17s
+epoch 0 step 40/348 ce_loss=1.1599 sigma=0.366 lr=[2.4226094031107216e-05, 9.680763787831727e-05] elapsed=33s
+epoch 0 step 60/348 ce_loss=1.1364 sigma=0.349 lr=[2.3282286114011076e-05, 9.291443022029568e-05] elapsed=49s
+epoch 0 step 80/348 ce_loss=1.0882 sigma=0.332 lr=[2.2004197865876832e-05, 8.764231619674191e-05] elapsed=65s
+epoch 0 done, checkpoint saved to repro/checkpoints/english/checkpoint_latest
+/home/dataset1/gaojing/jev_replica/laya/.venv/lib/python3.12/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+epoch 1 step 100/348 ce_loss=1.0525 sigma=0.315 lr=[2.0433380334588672e-05, 8.116269388017826e-05] elapsed=83s
+epoch 1 step 120/348 ce_loss=1.0692 sigma=0.297 lr=[1.8620901288397476e-05, 7.36862178146396e-05] elapsed=98s
+epoch 1 step 140/348 ce_loss=0.9915 sigma=0.280 lr=[1.6625684986834863e-05, 6.545595057069383e-05] elapsed=114s
+epoch 1 step 160/348 ce_loss=1.0018 sigma=0.263 lr=[1.451259653464346e-05, 5.673946070540433e-05] elapsed=130s
+epoch 1 done, checkpoint saved to repro/checkpoints/english/checkpoint_latest
+epoch 2 step 180/348 ce_loss=0.9577 sigma=0.246 lr=[1.235033309697498e-05, 4.7820124025021826e-05] elapsed=149s
+epoch 2 step 200/348 ce_loss=0.9460 sigma=0.228 lr=[1.0209190533108268e-05, 3.8987910949071626e-05] elapsed=165s
+epoch 2 step 220/348 ce_loss=0.9448 sigma=0.211 lr=[8.15877805612229e-06, 3.052995948150445e-05] elapsed=181s
+epoch 2 step 240/348 ce_loss=0.9624 sigma=0.194 lr=[6.265755215651408e-06, 2.2721240264562052e-05] elapsed=197s
+epoch 2 step 260/348 ce_loss=0.9411 sigma=0.177 lr=[4.591664775119889e-06, 1.581561719736954e-05] elapsed=213s
+epoch 2 done, checkpoint saved to repro/checkpoints/english/checkpoint_latest
+epoch 3 step 280/348 ce_loss=0.9161 sigma=0.159 lr=[3.1909319372933008e-06, 1.003759424133485e-05] elapsed=231s
+epoch 3 step 300/348 ce_loss=0.9102 sigma=0.142 lr=[2.109094963948519e-06, 5.575016726287631e-06] elapsed=247s
+epoch 3 step 320/348 ce_loss=0.9060 sigma=0.125 lr=[1.3813247127692407e-06, 2.5729644401731165e-06] elapsed=263s
+epoch 3 step 340/348 ce_loss=0.9133 sigma=0.108 lr=[1.0312812217846025e-06, 1.1290350398614855e-06] elapsed=279s
+epoch 3 done, checkpoint saved to repro/checkpoints/english/checkpoint_latest
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/home/dataset1/gaojing/jev_replica/laya/repro/train_ddp.py", line 279, in <module>
+[rank0]:     main()
+[rank0]:   File "/home/dataset1/gaojing/jev_replica/laya/repro/train_ddp.py", line 235, in main
+[rank0]:     L = torch.stack(d["logits"]).to(device)
+[rank0]:         ^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]: RuntimeError: stack expects each tensor to be equal size, but got [4] at entry 0 and [5] at entry 16
+W0928 17:20:39.703000 59116 torch/distributed/elastic/multiprocessing/api.py:1028] Sending process 59204 closing signal SIGTERM
+E0928 17:20:39.920000 59116 torch/distributed/elastic/multiprocessing/api.py:1002] failed (exitcode: 1) local_rank: 0 (pid: 59203) of binary: /home/dataset1/gaojing/jev_replica/laya/.venv/bin/python3
+Traceback (most recent call last):
+  File "/home/dataset1/gaojing/jev_replica/laya/.venv/bin/torchrun", line 10, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/home/dataset1/gaojing/jev_replica/laya/.venv/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 380, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/dataset1/gaojing/jev_replica/laya/.venv/lib/python3.12/site-packages/torch/distributed/run.py", line 1138, in main
+    run(args)
+  File "/home/dataset1/gaojing/jev_replica/laya/.venv/lib/python3.12/site-packages/torch/distributed/run.py", line 1129, in run
+    elastic_launch(
+  File "/home/dataset1/gaojing/jev_replica/laya/.venv/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 197, in __call__
+    return launch_agent(
+           ^^^^^^^^^^^^^
+  File "/home/dataset1/gaojing/jev_replica/laya/.venv/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 386, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+repro/train_ddp.py FAILED
+------------------------------------------------------------
+Failures:
+[1]:
+  time      : 2026-09-28_17:20:39
+  host      : a100
+  rank      : 1 (local_rank: 1)
+  exitcode  : -15 (pid: 59204)  (SIGTERM)
+  error_file: <N/A>
+  traceback : Signal 15 (SIGTERM) received by PID 59204
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-09-28_17:20:39
+  host      : a100
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 59203) 
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

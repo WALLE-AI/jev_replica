@@ -1,0 +1,21 @@
+=== MASSIVE intent (repro/checkpoints/english/final_deploy) ===
+  en     n= 100 acc=0.0900 ece=0.0603 mean_conf=0.1085
+  de     n= 100 acc=0.0600 ece=0.0544 mean_conf=0.0869
+  fr     n= 100 acc=0.0700 ece=0.0250 mean_conf=0.0950
+  es     n= 100 acc=0.0600 ece=0.0356 mean_conf=0.0956
+  zh-CN  n= 100 acc=0.0800 ece=0.0251 mean_conf=0.0937
+  hi     n= 100 acc=0.0500 ece=0.0470 mean_conf=0.0832
+  ar     n= 100 acc=0.0400 ece=0.0442 mean_conf=0.0842
+  sw     n= 100 acc=0.0500 ece=0.0655 mean_conf=0.0830
+=== XNLI (repro/checkpoints/english/final_deploy) ===
+  en     n= 100 acc=0.3300 ece=0.1415 mean_conf=0.4715
+  de     n= 100 acc=0.3300 ece=0.1406 mean_conf=0.4706
+  fr     n= 100 acc=0.3300 ece=0.1526 mean_conf=0.4734
+  es     n= 100 acc=0.3300 ece=0.1440 mean_conf=0.4740
+  zh     n= 100 acc=0.3300 ece=0.1298 mean_conf=0.4598
+  hi     n= 100 acc=0.3300 ece=0.1264 mean_conf=0.4564
+  ar     n= 100 acc=0.3300 ece=0.1249 mean_conf=0.4549
+  sw     n= 100 acc=0.3300 ece=0.1352 mean_conf=0.4652
+MASSIVE macro-accuracy: 0.0625
+XNLI macro-accuracy:    0.3300
+wrote repro/eval_massive_xnli_english.json

@@ -1,0 +1,120 @@
+W0929 10:42:47.015000 211476 torch/distributed/run.py:982] 
+W0929 10:42:47.015000 211476 torch/distributed/run.py:982] *****************************************
+W0929 10:42:47.015000 211476 torch/distributed/run.py:982] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W0929 10:42:47.015000 211476 torch/distributed/run.py:982] *****************************************
+rank0: 5600 fit items, 400 calibration items, world_size=2
+Loading weights:   0%|          | 0/134 [00:00<?, ?it/s]Loading weights: 100%|██████████| 134/134 [00:00<00:00, 39204.57it/s]
+Loading weights:   0%|          | 0/134 [00:00<?, ?it/s]Loading weights: 100%|██████████| 134/134 [00:00<00:00, 40780.49it/s]
+[transformers] [1mModernBertModel LOAD REPORT[0m from: /home/dataset1/gaojing/jev_replica/laya/models/mmBERT-base
+Key               | Status     |  | 
+------------------+------------+--+-
+head.dense.weight | UNEXPECTED |  | 
+decoder.bias      | UNEXPECTED |  | 
+head.norm.weight  | UNEXPECTED |  | 
+decoder.weight    | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+[transformers] [1mModernBertModel LOAD REPORT[0m from: /home/dataset1/gaojing/jev_replica/laya/models/mmBERT-base
+Key               | Status     |  | 
+------------------+------------+--+-
+head.norm.weight  | UNEXPECTED |  | 
+decoder.bias      | UNEXPECTED |  | 
+head.dense.weight | UNEXPECTED |  | 
+decoder.weight    | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+[rank0]:[W929 10:42:55.011796912 reducer.cpp:1529] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[rank1]:[W929 10:42:55.047725314 reducer.cpp:1529] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+/home/dataset1/gaojing/jev_replica/laya/repro/train_ddp.py:192: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+  scheduler.step()
+/home/dataset1/gaojing/jev_replica/laya/repro/train_ddp.py:192: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+  scheduler.step()
+epoch 0 step 20/348 ce_loss=1.1646 sigma=0.384 lr=[2.4804938127184034e-05, 9.919536977463413e-05] elapsed=14s
+epoch 0 step 40/348 ce_loss=1.1513 sigma=0.366 lr=[2.4226094031107216e-05, 9.680763787831727e-05] elapsed=27s
+epoch 0 step 60/348 ce_loss=1.1063 sigma=0.349 lr=[2.3282286114011076e-05, 9.291443022029568e-05] elapsed=40s
+epoch 0 step 80/348 ce_loss=1.0453 sigma=0.332 lr=[2.2004197865876832e-05, 8.764231619674191e-05] elapsed=52s
+epoch 0 done, checkpoint saved to repro/checkpoints/multilingual/checkpoint_latest
+/home/dataset1/gaojing/jev_replica/laya/.venv/lib/python3.12/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+epoch 1 step 100/348 ce_loss=0.9893 sigma=0.315 lr=[2.0433380334588672e-05, 8.116269388017826e-05] elapsed=67s
+epoch 1 step 120/348 ce_loss=1.0416 sigma=0.297 lr=[1.8620901288397476e-05, 7.36862178146396e-05] elapsed=79s
+epoch 1 step 140/348 ce_loss=0.9743 sigma=0.280 lr=[1.6625684986834863e-05, 6.545595057069383e-05] elapsed=91s
+epoch 1 step 160/348 ce_loss=0.9812 sigma=0.263 lr=[1.451259653464346e-05, 5.673946070540433e-05] elapsed=102s
+epoch 1 done, checkpoint saved to repro/checkpoints/multilingual/checkpoint_latest
+epoch 2 step 180/348 ce_loss=0.9490 sigma=0.246 lr=[1.235033309697498e-05, 4.7820124025021826e-05] elapsed=116s
+epoch 2 step 200/348 ce_loss=0.9351 sigma=0.228 lr=[1.0209190533108268e-05, 3.8987910949071626e-05] elapsed=129s
+epoch 2 step 220/348 ce_loss=0.9273 sigma=0.211 lr=[8.15877805612229e-06, 3.052995948150445e-05] elapsed=142s
+epoch 2 step 240/348 ce_loss=0.9296 sigma=0.194 lr=[6.265755215651408e-06, 2.2721240264562052e-05] elapsed=155s
+epoch 2 step 260/348 ce_loss=0.9279 sigma=0.177 lr=[4.591664775119889e-06, 1.581561719736954e-05] elapsed=168s
+epoch 2 done, checkpoint saved to repro/checkpoints/multilingual/checkpoint_latest
+epoch 3 step 280/348 ce_loss=0.8980 sigma=0.159 lr=[3.1909319372933008e-06, 1.003759424133485e-05] elapsed=183s
+epoch 3 step 300/348 ce_loss=0.8907 sigma=0.142 lr=[2.109094963948519e-06, 5.575016726287631e-06] elapsed=196s
+epoch 3 step 320/348 ce_loss=0.8862 sigma=0.125 lr=[1.3813247127692407e-06, 2.5729644401731165e-06] elapsed=208s
+epoch 3 step 340/348 ce_loss=0.9011 sigma=0.108 lr=[1.0312812217846025e-06, 1.1290350398614855e-06] elapsed=221s
+epoch 3 done, checkpoint saved to repro/checkpoints/multilingual/checkpoint_latest
+bucket noul:2: n=106 fitted_temp=1.320 clamped=1.320
+bucket score:3-5: n=153 fitted_temp=1.106 clamped=1.106
+bucket choice:3-5: n=141 fitted_temp=0.997 clamped=0.997
+wrote final checkpoint to repro/checkpoints/multilingual/final
+per-type temperatures: [0.9969478249549866, 1.106343388557434, 1.3200058937072754]
+[rank1]:[E929 10:56:43.131215745 ProcessGroupNCCL.cpp:741] [PG GUID 0(default_pg) Rank 1] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=28010, OpType=ALLREDUCE, NumelIn=1, NumelOut=1, Timeout(ms)=600000) ran for 600056 milliseconds before timing out.
+[rank1]:[E929 10:56:43.135376607 ProcessGroupNCCL.cpp:2390] [PG ID 0 PG GUID 0(default_pg) Rank 1]  failure detected by watchdog at work sequence id: 28010 PG status: last enqueued work: 28010, last started work: -1 (), last completed work: 28009
+[rank1]:[E929 10:56:43.136392511 ProcessGroupNCCL.cpp:785] Stack trace of the failed collective: 
+#0 barrier from /home/dataset1/gaojing/jev_replica/laya/.venv/lib/python3.12/site-packages/torch/distributed/distributed_c10d.py:6364
+#1 wrapper from /home/dataset1/gaojing/jev_replica/laya/.venv/lib/python3.12/site-packages/torch/distributed/c10d_logger.py:83
+#2 main from /home/dataset1/gaojing/jev_replica/laya/repro/train_ddp.py:285
+#3 <module> from /home/dataset1/gaojing/jev_replica/laya/repro/train_ddp.py:290
+
+[rank1]:[E929 10:56:43.136463268 ProcessGroupNCCL.cpp:2732] [PG ID 0 PG GUID 0(default_pg) Rank 1] First PG on this rank to signal dumping.
+[rank1]:[E929 10:56:44.679799704 ProcessGroupNCCL.cpp:1982] [PG ID 0 PG GUID 0(default_pg) Rank 1] Received a dump signal due to a collective timeout from this local rank and we will try our best to dump the debug info. Last enqueued NCCL work: 28010, last completed NCCL work: 28009.This is most likely caused by incorrect usages of collectives, e.g., wrong sizes used across ranks, the order of collectives is not same for all ranks or the scheduled collective, for some reason, didn't run. Additionally, this can be caused by GIL deadlock or other reasons such as network errors or bugs in the communications library (e.g. NCCL), etc. 
+[rank1]:[E929 10:56:44.680062629 ProcessGroupNCCL.cpp:1694] [PG ID 0 PG GUID 0(default_pg) Rank 1] ProcessGroupNCCL preparing to dump debug info. Include stack trace: 1, only active collectives: 0
+[rank1]:[E929 10:57:44.687255329 ProcessGroupNCCL.cpp:802] [PG GUID 0(default_pg) Rank 1] Some NCCL operations have failed or timed out. Due to the asynchronous nature of CUDA kernels, subsequent GPU operations might run on corrupted/incomplete data.
+[rank1]:[E929 10:57:44.687289503 ProcessGroupNCCL.cpp:816] [PG GUID 0(default_pg) Rank 1] To avoid data inconsistency, we are taking the entire process down.
+[rank1]:[E929 10:57:44.690161922 ProcessGroupNCCL.cpp:2192] [PG ID 0 PG GUID 0(default_pg) Rank 1] Process group watchdog thread terminated with exception: [PG GUID 0(default_pg) Rank 1] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=28010, OpType=ALLREDUCE, NumelIn=1, NumelOut=1, Timeout(ms)=600000) ran for 600056 milliseconds before timing out.
+Exception raised from checkTimeout at /__w/pytorch/pytorch/torch/csrc/distributed/c10d/ProcessGroupNCCL.cpp:744 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x9d (0x7fd21c55e60d in /home/dataset1/gaojing/jev_replica/laya/.venv/lib/python3.12/site-packages/torch/lib/libc10.so)
+frame #1: c10::DistError::DistError(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x72 (0x7fd21c55f5e2 in /home/dataset1/gaojing/jev_replica/laya/.venv/lib/python3.12/site-packages/torch/lib/libc10.so)
+frame #2: c10::DistBackendError::DistBackendError(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x72 (0x7fd21c55f712 in /home/dataset1/gaojing/jev_replica/laya/.venv/lib/python3.12/site-packages/torch/lib/libc10.so)
+frame #3: c10d::ProcessGroupNCCL::WorkNCCL::checkTimeout(std::optional<std::chrono::duration<long, std::ratio<1l, 1000l> > >) + 0x2a7 (0x7fd164d2a847 in /home/dataset1/gaojing/jev_replica/laya/.venv/lib/python3.12/site-packages/torch/lib/libtorch_cuda.so)
+frame #4: c10d::ProcessGroupNCCL::Watchdog::runLoop() + 0x15b1 (0x7fd164d367e1 in /home/dataset1/gaojing/jev_replica/laya/.venv/lib/python3.12/site-packages/torch/lib/libtorch_cuda.so)
+frame #5: c10d::ProcessGroupNCCL::Watchdog::run() + 0x157 (0x7fd164d37a57 in /home/dataset1/gaojing/jev_replica/laya/.venv/lib/python3.12/site-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdbbf4 (0x7fd1ec6c7bf4 in /home/dataset1/gaojing/anaconda3/bin/../lib/libstdc++.so.6)
+frame #7: <unknown function> + 0x94a83 (0x7fd21d734a83 in /lib/x86_64-linux-gnu/libc.so.6)
+frame #8: <unknown function> + 0x1268e0 (0x7fd21d7c68e0 in /lib/x86_64-linux-gnu/libc.so.6)
+
+W0929 10:57:44.776000 211476 torch/distributed/elastic/multiprocessing/api.py:1028] Sending process 211554 closing signal SIGTERM
+E0929 10:57:44.795000 211476 torch/distributed/elastic/multiprocessing/api.py:1002] failed (exitcode: -6) local_rank: 1 (pid: 211555) of binary: /home/dataset1/gaojing/jev_replica/laya/.venv/bin/python3
+Traceback (most recent call last):
+  File "/home/dataset1/gaojing/jev_replica/laya/.venv/bin/torchrun", line 10, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/home/dataset1/gaojing/jev_replica/laya/.venv/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 380, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/dataset1/gaojing/jev_replica/laya/.venv/lib/python3.12/site-packages/torch/distributed/run.py", line 1138, in main
+    run(args)
+  File "/home/dataset1/gaojing/jev_replica/laya/.venv/lib/python3.12/site-packages/torch/distributed/run.py", line 1129, in run
+    elastic_launch(
+  File "/home/dataset1/gaojing/jev_replica/laya/.venv/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 197, in __call__
+    return launch_agent(
+           ^^^^^^^^^^^^^
+  File "/home/dataset1/gaojing/jev_replica/laya/.venv/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 386, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+=======================================================
+repro/train_ddp.py FAILED
+-------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+-------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-09-29_10:57:44
+  host      : a100
+  rank      : 1 (local_rank: 1)
+  exitcode  : -6 (pid: 211555)  (SIGABRT)
+  error_file: <N/A>
+  traceback : Signal 6 (SIGABRT) received by PID 211555
+=======================================================
